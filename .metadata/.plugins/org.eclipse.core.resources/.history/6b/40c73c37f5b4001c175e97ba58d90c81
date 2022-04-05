@@ -25,20 +25,11 @@ public class dice_roller {//main method stuff auto created by eclipse
 	
 		do//loop start 1
 		{
-			if (scnr.hasNextInt())//checks if input is integer
+
+			if (scnr.hasNextInt() && scnr.nextInt() >= 0)//checks if input is integer
 			{
 				userInput = scnr.nextInt();//if integer, assigns to userInput variable
-					
-				if(userInput > 0)//checks if integer is positive
-					{
-						
-					}
-				else//if not positive this is displayed and user re enters number
-					{
-						System.out.println("Invalid input, please enter positive integer.");
-						continue;
-					}
-				
+		
 				do {//loop start 2
 					
 					int randomOne = (int)Math.floor(Math.random() * (userInput - min + 1) + min);//randomized roll 1
@@ -88,8 +79,9 @@ public class dice_roller {//main method stuff auto created by eclipse
 					}while(true);//end loop 2
 				
 				break;
+			
 			}
-		
+			
 			else//if not integer message prints and user enters again
 			{
 				System.out.println("Invalid input, please enter positive integer.");
