@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class dice_roller {
+		
+	public static void main(String[] args) {
+	
+	int min = 1;
+	char decision;
+	int rollNumber = 1;
+	int userInput = 0;
+	
+	Scanner	scnr = new Scanner(System.in);
+
+	System.out.println("Welcome to my dice roll game!");
+	//System.out.println("How many sides should each die have? (Enter positive integer)");
+	
+		do
+		{
+
+			if (scnr.hasNextInt())
+			{
+				userInput = scnr.nextInt();
+		
+				do {
+					
+					int randomOne = (int)Math.floor(Math.random() * (userInput - min + 1) + min);
+					
+					int randomTwo = (int)Math.floor(Math.random() * (userInput - min + 1) + min);
+					
+					System.out.println("Roll " + rollNumber + " Results:");
+					
+					System.out.println(randomOne);
+					
+					System.out.println(randomTwo);
+					
+					int total = randomOne + randomTwo;
+					
+						if (randomOne == 1 && randomTwo == 1)
+						{
+							System.out.println("You rolled Snake Eyes!");
+						}
+						else if (randomOne == 6 && randomTwo == 6)
+						{
+							System.out.println("You rolled Box Cars!");
+						}
+						else
+						{
+							System.out.println("You rolled a " + total);
+						}
+						
+					rollNumber++;
+							
+					System.out.println("Would you like to roll again? (y/n)");
+					decision = scnr.next().charAt(0);
+					
+						if (decision == 'y' || decision == 'Y')
+						{
+							continue;
+						}
+						else
+						{
+							System.out.println("Thanks for playing! Goodbye!");
+							break;
+						}
+						
+					}while(true);
+				
+				break;
+			
+			}
+			
+			else
+			{
+				System.out.println("Invalid input, please enter positive integer.");
+				continue;
+			}
+		
+		}while (true);
+	
+	scnr.close();
+	
+	}
+
+}
